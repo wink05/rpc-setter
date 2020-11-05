@@ -1,21 +1,25 @@
 # Place for imports
 import os
 import time
+import psutil
 from pypresence import Presence
+from time import time
 
 def step1(): #this step will set rpc
+
     RPC = Presence(client_id)
     RPC.connect()
+    
     if big_image == "nothing" or big_image == "":
         try:
-            RPC.update(state=big_text, details=small_text)
+            RPC.update(state=big_text, details=small_text, start=time())
         except:
             RPC.disconnect
             print("Something wrong happened!")
             os.system("pause")
     else:
         try:
-            RPC.update(state=big_text, details=small_text, large_image=big_image, small_image=mini_image)
+            RPC.update(state=second_text, details=first_text, large_image=big_image, small_image=mini_image, start=time())
         except:
             RPC.disconnect
             print("Something wrong happened!")
@@ -31,9 +35,9 @@ print("=====================================")
 client_id = input("Paste your APP ID here: ")
 print("Great!")
 print("=====================================")
-big_text = input("Now type what you want in big text: ")
+first_text = input("Now type what you want in first text: ")
 print("Great!")
-small_text = input("Now type what you want in small text: ")
+second_text = input("Now type what you want in second text: ")
 print("Great!")
 print("=====================================")
 big_image = input("Now type big image name: (if you dont have/want to use it write 'nothing', if you dont use big image, small image will be not available.) ")
@@ -43,7 +47,8 @@ else:
     mini_image = (input("Now type small image name: "))
 print("Now we're done! Going to setting...")
 print("====================================")
+print("Warning! You have to keep this script open until you want to RPC status be visible.")
 
 while True:
     step1()
-    time.sleep(60)
+
