@@ -1,7 +1,6 @@
 # Place for imports
 import os
 import time
-import psutil
 from pypresence import Presence
 from time import time
 
