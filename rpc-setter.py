@@ -4,7 +4,8 @@ import time
 from pypresence import Presence
 from time import time
 
-def step1(): #this step will set rpc
+# Step to set RPC 
+def step1():
 
     RPC = Presence(client_id)
     RPC.connect()
@@ -24,6 +25,7 @@ def step1(): #this step will set rpc
             print("Something wrong happened!")
             os.system("pause")
 
+# Start script
 print("=====================================")
 print("Discord Rich Presence setter by @wink05 (at github)")
 print("=====================================")
